@@ -7,4 +7,10 @@
 # USAR DEPOIS
 # dados = open('dados.txt', 'r')
 
+prof = input("Qual é o nome do professor?")
 
+horarios = input("Quais são os horários que esse professor tem disponível?")
+
+lista_horario = horarios.split()
+
+print(lista_horario)
