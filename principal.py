@@ -16,18 +16,43 @@ lista_horario = horarios.split()
 print(lista_horario)
 
 
-# disponiveis = []
+#THIAGO
+disponiveis = []
 
-# for c in range(2, 7):
-#     if c == 2:
-#         disponivel = str(input(f'Tem horário disponível na segunda-feira? [S/N]')).strip().lower()[0]
-#         if disponivel == 'n':
-#             break
-#         else:
-#             disponiveis.append(input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: '))
-#     if c == 2:
-#         disponivel = str(input(f'Tem horário disponível na terça-feira? [S/N]')).strip().lower()[0]
-#         if disponivel == 'n':
-#             break
-#         else:
-#             disponiveis.append(input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: '))
+for c in range(2, 7):
+    if c == 2:
+        disponivel = str(input(f'Tem horário disponível na segunda-feira? [S/N] ')).strip().lower()[0]
+        if disponivel == 'n':
+            continue
+        else:
+            print('Digite o número e dê espaço para cada novo número, exemplo: 1 2. O primeiro e o segundo horário.')
+            disponiveis.append(input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: '))
+    if c == 3:
+        disponivel = str(input(f'Tem horário disponível na terça-feira? [S/N] ')).strip().lower()[0]
+        if disponivel == 'n':
+            continue
+        else:
+            print('Digite o número e dê espaço para cada novo número, exemplo: 1 2. O primeiro e o segundo horário.')
+            disponiveis.append(input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: '))
+    if c == 4:
+        disponivel = str(input(f'Tem horário disponível na quarta-feira? [S/N] ')).strip().lower()[0]
+        if disponivel == 'n':
+            continue
+        else:
+            print('Digite o número e dê espaço para cada novo número, exemplo: 1 2. O primeiro e o segundo horário.')
+            disponiveis.append(input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: '))
+    if c == 5:
+        disponivel = str(input(f'Tem horário disponível na quinta-feira? [S/N] ')).strip().lower()[0]
+        if disponivel == 'n':
+            continue
+        else:
+            print('Digite o número e dê espaço para cada novo número, exemplo: 1 2. O primeiro e o segundo horário.')
+            disponiveis.append(input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: '))
+    if c == 6:
+        disponivel = str(input(f'Tem horário disponível na sexta-feira? [S/N] ')).strip().lower()[0]
+        if disponivel == 'n':
+            continue
+        else:
+            print('Digite o número e dê espaço para cada novo número, exemplo: 1 2. O primeiro e o segundo horário.')
+            disponiveis.append(input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: '))
+#THIAGO
