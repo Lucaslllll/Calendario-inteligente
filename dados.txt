@@ -1,8 +1,2 @@
-ervilha seg/0 ter/0 qua/0 qui/1245 sex/0
-batata seg/123 ter/456 qua/0 qui/0 sex/0
-ervilha seg/0 ter/0 qua/1234 qui/4 sex/123
-batata seg/0 ter/0 qua/0 qui/0 sex/0
-dsf seg/0 ter/0 qua/0 qui/0 sex/0
-batata seg/0 ter/0 qua/0 qui/0 sex/0
-macaxeira seg/0 ter/0 qua/0 qui/0 sex/0
-dsf seg/0 ter/0 qua/0 qui/0 sex/0
+Tales 2|123 3|0 4|0 5|0 6|1234
+Lucas 2|0 3|0 4|0 5|1234 6|4
