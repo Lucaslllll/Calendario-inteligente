@@ -33,7 +33,7 @@ def organizar_coluna(lista, usuario, valor):
 
 def adicionar_na_tabela(lista):
 
-    for i in range(1, len(lista)):
+    for i in range(0, len(lista)):
         valor = lista[i]
         if valor[0] == '2' and valor[2] != '0':
            organizar_coluna(seg, lista[0], valor)
@@ -68,35 +68,35 @@ for i in range(0, numProf):
     for c in range(2, 7):
         if c == 2:
             disponivel = str(input('Tem horário disponível na segunda-feira? [S/N] '))
-            if disponivel == 'n':
+            if disponivel == 'n' or disponivel == 'N':
                 horario1 = '0'
                 continue
             else:
                 horario1 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]:')
         if c == 3:
             disponivel = str(input('Tem horário disponível na terça-feira? [S/N] '))
-            if disponivel == 'n':
+            if disponivel == 'n' or disponivel == 'N':
                 horario2 = '0'
                 continue
             else:
                 horario2 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]:')
         if c == 4:
             disponivel = str(input('Tem horário disponível na quarta-feira? [S/N] '))
-            if disponivel == 'n':
+            if disponivel == 'n' or disponivel == 'N':
                 horario3 = '0'
                 continue
             else:
                 horario3 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]:')
         if c == 5:
             disponivel = str(input('Tem horário disponível na quinta-feira? [S/N] '))
-            if disponivel == 'n':
+            if disponivel == 'n' or disponivel == 'N':
                 horario4 = '0'
                 continue
             else:
                 horario4 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]:')
         if c == 6:
             disponivel = str(input('Tem horário disponível na sexta-feira? [S/N] '))
-            if disponivel == 'n':
+            if disponivel == 'n' or disponivel == 'N':
                 horario5 = '0' 
             else:
                 horario5 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]:')
