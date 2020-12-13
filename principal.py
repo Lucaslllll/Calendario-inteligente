@@ -2,32 +2,59 @@ from __future__ import unicode_literals
 from prettytable import PrettyTable
 import prompt_toolkit
 from prompt_toolkit import prompt
-import tabela_modulos
+
+def dia_da_semana(valor):
+
+    if valor == '2':
+        return 'Segunda-feira'
+    elif valor == '3':
+        return 'Terça-feira'
+    elif valor == '4':
+        return 'Quarta-feira'
+    elif valor == '5':
+        return 'Quinta-feira'
+    elif valor == '6':
+        return 'Sexta-feira'
+
+def organizar_coluna(lista, usuario, valor):
+    contador = 1
+    for i in range(2, len(valor)):
+        while contador <= 6:
+            if valor[i] == str(contador) and lista[contador - 1] == 'Livre':
+                    lista[contador - 1] = usuario
+                    contador += 1
+            elif valor[i] == str(contador) and lista[contador - 1] != 'Livre':
+                print('Erro com {0}: o horário {1} na {2} já foi reservado para {3}.'.format(usuario, contador, dia_da_semana(valor[0]), lista[contador - 1]))
+                contador += 1
+            else:
+                contador += 1
+        contador = 1
+    return lista
+
+def adicionar_na_tabela(lista):
+
+    for i in range(1, len(lista)):
+        valor = lista[i]
+        if valor[0] == '2' and valor[2] != '0':
+           organizar_coluna(seg, lista[0], valor)
+        if valor[0] == '3' and valor[2] != '0':
+           organizar_coluna(ter, lista[0], valor)
+        if valor[0] == '4' and valor[2] != '0':
+           organizar_coluna(qua, lista[0], valor)
+        if valor[0] == '5' and valor[2] != '0':
+           organizar_coluna(qui, lista[0], valor)
+        if valor[0] == '6' and valor[2] != '0':
+           organizar_coluna(sex, lista[0], valor)
+
+lista2 = ['Thiago', '2|456', '3|1', '4|0', '5|6', '6|345']
+
+lista = ['Tales', '2|123', '3|3', '4|2', '5|6', '6|126']
 
 seg = ['Livre', 'Livre', 'Livre', 'Livre', 'Livre', 'Livre']
 ter = ['Livre', 'Livre', 'Livre', 'Livre', 'Livre', 'Livre']
 qua = ['Livre', 'Livre', 'Livre', 'Livre', 'Livre', 'Livre']
 qui = ['Livre', 'Livre', 'Livre', 'Livre', 'Livre', 'Livre']
 sex = ['Livre', 'Livre', 'Livre', 'Livre', 'Livre', 'Livre']
-
-#LISTA = []
-#
-#lista = ['Tales', '2|1', '3|23', '4|2', '5|6', '6|1234']
-#
-#lista2 = ['Thiago', '2|23', '3|1', '4|N', '5|6', '6|345']
-#
-#lista3 = ['Lucas', '2|456', '3|23', '4|2', '5|6', '6|26']
-#
-#print('A lista 1 é:', lista)
-#print('A lista 2 é:', lista2)
-#print('A lista 3 é:', lista3)
-#
-#LISTA.append(lista)
-#LISTA.append(lista2)
-#LISTA.append(lista3)
-#
-#tabela_modulos.criar_lista_horarios(LISTA)
-#tabela_modulos.criar_lista_prioridade(LISTA)
 
 prof = []
 
@@ -41,35 +68,35 @@ for i in range(0, numProf):
     for c in range(2, 7):
         if c == 2:
             disponivel = str(input('Tem horário disponível na segunda-feira? [S/N] '))
-            if disponivel == 'n' or disponivel == 'N':
+            if disponivel == 'n':
                 horario1 = '0'
                 continue
             else:
                 horario1 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]:')
         if c == 3:
             disponivel = str(input('Tem horário disponível na terça-feira? [S/N] '))
-            if disponivel == 'n' or disponivel == 'N':
+            if disponivel == 'n':
                 horario2 = '0'
                 continue
             else:
                 horario2 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]:')
         if c == 4:
             disponivel = str(input('Tem horário disponível na quarta-feira? [S/N] '))
-            if disponivel == 'n' or disponivel == 'N':
+            if disponivel == 'n':
                 horario3 = '0'
                 continue
             else:
                 horario3 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]:')
         if c == 5:
             disponivel = str(input('Tem horário disponível na quinta-feira? [S/N] '))
-            if disponivel == 'n' or disponivel == 'N':
+            if disponivel == 'n':
                 horario4 = '0'
                 continue
             else:
                 horario4 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]:')
         if c == 6:
             disponivel = str(input('Tem horário disponível na sexta-feira? [S/N] '))
-            if disponivel == 'n' or disponivel == 'N':
+            if disponivel == 'n':
                 horario5 = '0' 
             else:
                 horario5 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]:')
@@ -90,24 +117,22 @@ a_file.close()
 
 #Adicionar os últimos professores colocados no banco de memoria
 i = numProf - 1
-LISTA = []
 while i >= 0:
     print(i)
     l = lines[-1 - i].split()
-    LISTA.append(l)
+    adicionar_na_tabela(l)
     print('Foi adicionado à tabela: ', lines[-1 - i])
     i -= 1
-tabela_modulos.printar_tabela(LISTA)
 
-#print('Uma amostra bem mais implementada da tabela')
-#x = PrettyTable()
-#x.add_column('Horários', ["6", "5", "4", "3", "2", "1"])
-#x.add_column('Segunda-feira', [seg[5], seg[4], seg[3], seg[2], seg[1], seg[0]])
-#x.add_column('Terça-feira', [ter[5], ter[4], ter[3], ter[2], ter[1], ter[0]])
-#x.add_column('Quarta-feira', [qua[5], qua[4], qua[3], qua[2], qua[1], qua[0]])
-#x.add_column('Quinta-feira', [qui[5], qui[4], qui[3], qui[2], qui[1], qui[0]])
-#x.add_column('Sexta-feira', [sex[5], sex[4], sex[3], sex[2], sex[1], sex[0]])
-#print(x)
+print('Uma amostra bem mais implementada da tabela')
+x = PrettyTable()
+x.add_column('Horários', ["6", "5", "4", "3", "2", "1"])
+x.add_column('Segunda-feira', [seg[5], seg[4], seg[3], seg[2], seg[1], seg[0]])
+x.add_column('Terça-feira', [ter[5], ter[4], ter[3], ter[2], ter[1], ter[0]])
+x.add_column('Quarta-feira', [qua[5], qua[4], qua[3], qua[2], qua[1], qua[0]])
+x.add_column('Quinta-feira', [qui[5], qui[4], qui[3], qui[2], qui[1], qui[0]])
+x.add_column('Sexta-feira', [sex[5], sex[4], sex[3], sex[2], sex[1], sex[0]])
+print(x)
 
 deletar = input('Quer deletar todos os dados? [s/n]')
 if deletar == 's':
