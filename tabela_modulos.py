@@ -18,6 +18,7 @@ def dia_da_semana(valor):
     elif valor == '6':
         return 'Sexta-feira'
 
+
 def organizar_coluna(lista, usuario, valor):
     contador = 1
     for i in range(2, len(valor)):
@@ -33,24 +34,24 @@ def organizar_coluna(lista, usuario, valor):
         contador = 1
     return lista
 
-def adicionar_na_tabela(LISTA):
-    prioridade = criar_lista_prioridade(LISTA)
-    for a in range(0, len(LISTA)):
-        lista = LISTA[a]
-        for i in range(0, len(prioridade)):
-            prioridadesDia = prioridade[i]
-            if prioridadesDia[a] == lista[0] and prioridade[i] == 0:
-                organizar_coluna(seg, lista[0], valor)
-            if prioridadesDia[a] == lista[0] and prioridade[i] == 1:
-                organizar_coluna(ter, lista[0], valor)
-            if prioridadesDia[a] == lista[0] and prioridade[i] == 2:
-                organizar_coluna(qua, lista[0], valor)
-            if prioridadesDia[a] == lista[0] and prioridade[i] == 3:
-                organizar_coluna(qui, lista[0], valor)
-            if prioridadesDia[a] == lista[0] and prioridade[i] == 4:
-                organizar_coluna(sex, lista[0], valor)
-            else:
-                continue
+# def adicionar_na_tabela(LISTA):
+#     prioridade = criar_lista_prioridade(LISTA)
+#     for a in range(0, len(LISTA)):
+#         lista = LISTA[a]
+#         for i in range(0, len(prioridade)):
+#             prioridadesDia = prioridade[i]
+#             if prioridadesDia[a] == lista[0] and prioridade[i] == 0:
+#                 organizar_coluna(seg, lista[0], valor) 
+#             if prioridadesDia[a] == lista[0] and prioridade[i] == 1:
+#                 organizar_coluna(ter, lista[0], valor)
+#             if prioridadesDia[a] == lista[0] and prioridade[i] == 2:
+#                 organizar_coluna(qua, lista[0], valor)
+#             if prioridadesDia[a] == lista[0] and prioridade[i] == 3:
+#                 organizar_coluna(qui, lista[0], valor)
+#             if prioridadesDia[a] == lista[0] and prioridade[i] == 4:
+#                 organizar_coluna(sex, lista[0], valor)
+#             else:
+#                 continue
 
 def ordem_crescente(LISTA):
     for y in range(0, len(LISTA)):
@@ -89,7 +90,7 @@ def contar_horarios(hor):
     return numHorarios
 
 def criar_lista_horarios(LISTA):
-    horarios = [[], [], [], [], []]
+    horarios = [[], [], [], [], [], []]
     for i in range(0, len(LISTA)):
         dadosUsuario = LISTA[i]
         for y in range(1, len(dadosUsuario)):
@@ -127,7 +128,7 @@ def verificar_se_todos_adicionados(lista, tamanho):
 
 def criar_lista_prioridade(LISTA):
     horarios = criar_lista_horarios(LISTA)
-    usuarioPrioridade = [[], [], [], [], []]
+    usuarioPrioridade = [[], [], [], [], [], []]
     i = 0
     y = 1
     condicao = False
@@ -186,18 +187,18 @@ def adicionar_na_tabela(LISTA):
             #prioridadesDia = ["Tales", "Lucas", "Thiago"]
             
             if prioridadesDia[a] == lista[0][0] and i == 0:
-                organizar_coluna(seg, lista[0][0], valor)
+                organizar_coluna(seg, lista[0][0], i) # valor = i?
                 
             if prioridadesDia[a] == lista[0] and i == 1:
-                organizar_coluna(ter, lista[0][0], valor)
+                organizar_coluna(ter, lista[0][0], i)
                 
             if prioridadesDia[a] == lista[0] and i == 2:
-                organizar_coluna(qua, lista[0][0], valor)
+                organizar_coluna(qua, lista[0][0], i)
                 
             if prioridadesDia[a] == lista[0] and i == 3:
-                organizar_coluna(qui, lista[0][0], valor)
+                organizar_coluna(qui, lista[0][0], i)
                 
             if prioridadesDia[a] == lista[0] and i == 4:
-                organizar_coluna(sex, lista[0][0], valor)
+                organizar_coluna(sex, lista[0][0], i)
             else:
                 continue

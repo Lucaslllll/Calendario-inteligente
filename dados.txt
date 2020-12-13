@@ -12,3 +12,9 @@ Juvenal 2|1 2 3| 4|N 5|N 6|N
 Juvenal 2|1 2 3|N 4|N 5|N 6|N
 Juvenal 2|0 3|0 4|0 5|0 6|0
 Jubileu 2|1 2 3|0 4|0 5|0 6|0
+Juvenal 2|0 3|0 4|0 5|0 6|0
+Jubileu 2|1 2 3|0 4|0 5|0 6|0
+Jubileu 2|1 2 3|0 4|0 5|0 6|0
+Jubileu 2|1 2 3|0 4|0 5|0 6|0
+Juvenal 2|1 2 3|0 4|0 5|0 6|0
+Jubileu 2|1 2 3|0 4|0 5|0 6|0
