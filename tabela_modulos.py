@@ -33,20 +33,24 @@ def organizar_coluna(lista, usuario, valor):
         contador = 1
     return lista
 
-def adicionar_na_tabela(lista):
-    #definir_prioridade(LISTA)
-    for i in range(1, len(lista)):
-        valor = lista[i]
-        if valor[0] == '2' and valor[2] != '0':
-           organizar_coluna(seg, lista[0], valor)
-        if valor[0] == '3' and valor[2] != '0':
-           organizar_coluna(ter, lista[0], valor)
-        if valor[0] == '4' and valor[2] != '0':
-           organizar_coluna(qua, lista[0], valor)
-        if valor[0] == '5' and valor[2] != '0':
-           organizar_coluna(qui, lista[0], valor)
-        if valor[0] == '6' and valor[2] != '0':
-           organizar_coluna(sex, lista[0], valor)
+def adicionar_na_tabela(LISTA):
+    prioridade = criar_lista_prioridade(LISTA)
+    for a in range(0, len(LISTA)):
+        lista = LISTA[a]
+        for i in range(0, len(prioridade)):
+            prioridadesDia = prioridade[i]
+            if prioridadesDia[a] == lista[0] and prioridade[i] == 0:
+                organizar_coluna(seg, lista[0], valor)
+            if prioridadesDia[a] == lista[0] and prioridade[i] == 1:
+                organizar_coluna(ter, lista[0], valor)
+            if prioridadesDia[a] == lista[0] and prioridade[i] == 2:
+                organizar_coluna(qua, lista[0], valor)
+            if prioridadesDia[a] == lista[0] and prioridade[i] == 3:
+                organizar_coluna(qui, lista[0], valor)
+            if prioridadesDia[a] == lista[0] and prioridade[i] == 4:
+                organizar_coluna(sex, lista[0], valor)
+            else:
+                continue
 
 def ordem_crescente(LISTA):
     for y in range(0, len(LISTA)):
@@ -148,9 +152,8 @@ def criar_lista_prioridade(LISTA):
     print(usuarioPrioridade)
     return usuarioPrioridade
 
-def printar_tabela(lista, lista2):
-    adicionar_na_tabela(lista)
-    adicionar_na_tabela(lista2)
+def printar_tabela(LISTA):
+    adicionar_na_tabela(LISTA)
     x = PrettyTable()
     x.add_column('Horários', ["6", "5", "4", "3", "2", "1"])
     x.add_column('Segunda-feira', [seg[5], seg[4], seg[3], seg[2], seg[1], seg[0]])
