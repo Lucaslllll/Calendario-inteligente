@@ -2,59 +2,32 @@ from __future__ import unicode_literals
 from prettytable import PrettyTable
 import prompt_toolkit
 from prompt_toolkit import prompt
-
-def dia_da_semana(valor):
-
-    if valor == '2':
-        return 'Segunda-feira'
-    elif valor == '3':
-        return 'Terça-feira'
-    elif valor == '4':
-        return 'Quarta-feira'
-    elif valor == '5':
-        return 'Quinta-feira'
-    elif valor == '6':
-        return 'Sexta-feira'
-
-def organizar_coluna(lista, usuario, valor):
-    contador = 1
-    for i in range(2, len(valor)):
-        while contador <= 6:
-            if valor[i] == str(contador) and lista[contador - 1] == 'Livre':
-                    lista[contador - 1] = usuario
-                    contador += 1
-            elif valor[i] == str(contador) and lista[contador - 1] != 'Livre':
-                print('Erro com {0}: o horário {1} na {2} já foi reservado para {3}.'.format(usuario, contador, dia_da_semana(valor[0]), lista[contador - 1]))
-                contador += 1
-            else:
-                contador += 1
-        contador = 1
-    return lista
-
-def adicionar_na_tabela(lista):
-
-    for i in range(1, len(lista)):
-        valor = lista[i]
-        if valor[0] == '2' and valor[2] != '0':
-           organizar_coluna(seg, lista[0], valor)
-        if valor[0] == '3' and valor[2] != '0':
-           organizar_coluna(ter, lista[0], valor)
-        if valor[0] == '4' and valor[2] != '0':
-           organizar_coluna(qua, lista[0], valor)
-        if valor[0] == '5' and valor[2] != '0':
-           organizar_coluna(qui, lista[0], valor)
-        if valor[0] == '6' and valor[2] != '0':
-           organizar_coluna(sex, lista[0], valor)
-
-lista2 = ['Thiago', '2|456', '3|1', '4|0', '5|6', '6|345']
-
-lista = ['Tales', '2|123', '3|3', '4|2', '5|6', '6|126']
+import tabela_modulos
 
 seg = ['Livre', 'Livre', 'Livre', 'Livre', 'Livre', 'Livre']
 ter = ['Livre', 'Livre', 'Livre', 'Livre', 'Livre', 'Livre']
 qua = ['Livre', 'Livre', 'Livre', 'Livre', 'Livre', 'Livre']
 qui = ['Livre', 'Livre', 'Livre', 'Livre', 'Livre', 'Livre']
 sex = ['Livre', 'Livre', 'Livre', 'Livre', 'Livre', 'Livre']
+
+LISTA = []
+
+lista = ['Tales', '2|1', '3|23', '4|2', '5|6', '6|1234']
+
+lista2 = ['Thiago', '2|23', '3|1', '4|N', '5|6', '6|345']
+
+lista3 = ['Lucas', '2|456', '3|23', '4|2', '5|6', '6|26']
+
+print('A lista 1 é:', lista)
+print('A lista 2 é:', lista2)
+print('A lista 3 é:', lista3)
+
+LISTA.append(lista)
+LISTA.append(lista2)
+LISTA.append(lista3)
+
+tabela_modulos.criar_lista_horarios(LISTA)
+tabela_modulos.criar_lista_prioridade(LISTA)
 
 prof = []
 
