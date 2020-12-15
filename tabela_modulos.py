@@ -162,3 +162,42 @@ def printar_tabela(LISTA):
     x.add_column('Quinta-feira', [qui[5], qui[4], qui[3], qui[2], qui[1], qui[0]])
     x.add_column('Sexta-feira', [sex[5], sex[4], sex[3], sex[2], sex[1], sex[0]])
     print(x)
+    
+    #THIAGO TENTATIVA 1
+    
+    #LISTA = [["Thiago", "2|234", "3|0", "4|0", "5|1", "6|0"], ["Lucas", "2|1", "3|0". "4|0", "5|234", "6|0"], ["Tales", "2|123", "3|0", "4|0", "5|0", "6|0"]]
+                                                                                                          
+def adicionar_na_tabela(LISTA):
+    prioridade = criar_lista_prioridade(LISTA)
+    
+    
+    
+    for a in range(0, len(LISTA)):
+        lista = LISTA[a]
+        
+        
+        #lista = ["Thiago", "2|234", "3|0", "4|0", "5|1", "6|0"]
+        
+        for i in range(0, len(prioridade)):
+            
+            prioridadesDia = prioridade[i]
+            
+            #prioridade = [["Tales", "Lucas", "Thiago"], [Lucas, Thiago, Tales], [Thiago, Tales, Lucas], [Lucas, Tales, Thiago], [Tales, Thiago, Lucas]]
+            #prioridadesDia = ["Tales", "Lucas", "Thiago"]
+            
+            if prioridadesDia[a] == lista[0][0] and i == 0:
+                organizar_coluna(seg, lista[0][0], valor)
+                
+            if prioridadesDia[a] == lista[0] and i == 1:
+                organizar_coluna(ter, lista[0][0], valor)
+                
+            if prioridadesDia[a] == lista[0] and i == 2:
+                organizar_coluna(qua, lista[0][0], valor)
+                
+            if prioridadesDia[a] == lista[0] and i == 3:
+                organizar_coluna(qui, lista[0][0], valor)
+                
+            if prioridadesDia[a] == lista[0] and i == 4:
+                organizar_coluna(sex, lista[0][0], valor)
+            else:
+                continue
