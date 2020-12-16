@@ -23,10 +23,10 @@ def organizar_coluna(lista, usuario, valor):
     for i in range(2, len(valor)):
         while contador <= 6:
             # "Livre" ou "--" por isso deve ter o or, caso contrário nunca irá entrar em outras condições
-            if valor[i] == str(contador) and (lista[contador - 1] == 'Livre' or lista[contador - 1] == '--'):
+            if valor[i] == str(contador) and lista[contador - 1] == '--':
                     lista[contador - 1] = usuario
                     contador += 1
-            elif valor[i] == str(contador) and lista[contador - 1] != 'Livre':
+            elif valor[i] == str(contador) and lista[contador - 1] != '--':
                 print('Erro com {}: o horário {} na {} já foi reservado para {}.'.format(usuario, contador, dia_da_semana(valor[0]), lista[contador - 1]))
                 contador += 1
             else:
@@ -111,6 +111,16 @@ for i in range(0, numProf):
             else:
                 horario3 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: ').split()
                 horario3 = ''.join(horario3)
+
+                if i > 0:
+                    for c in horario2:
+                        while c in lines[3][1:]:
+                            print(f'[ERRO]: o professor {lines[0]} já reservou {c}º horário. Por favor, selecione outro.')
+                            horario2 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: ').split()
+                            horario2 = ''.join(horario2)
+                            if horario1 not in lines[3][1:]:
+                                break
+
         if c == 5:
             disponivel = str(input('Tem horário disponível na quinta-feira? [S/N] ')).lower()[0]
             if disponivel == 'n':
@@ -119,6 +129,15 @@ for i in range(0, numProf):
             else:
                 horario4 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: ').split()
                 horario4 = ''.join(horario4)
+
+                if i > 0:
+                    for c in horario2:
+                        while c in lines[4][1:]:
+                            print(f'[ERRO]: o professor {lines[0]} já reservou {c}º horário. Por favor, selecione outro.')
+                            horario2 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: ').split()
+                            horario2 = ''.join(horario2)
+                            if horario1 not in lines[4][1:]:
+                                break
         if c == 6:
             disponivel = str(input('Tem horário disponível na sexta-feira? [S/N] ')).lower()[0]
             if disponivel == 'n':
@@ -126,6 +145,15 @@ for i in range(0, numProf):
             else:
                 horario5 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: ').split()
                 horario5 = ''.join(horario5)
+
+                if i > 0:
+                    for c in horario2:
+                        while c in lines[5][1:]:
+                            print(f'[ERRO]: o professor {lines[0]} já reservou {c}º horário. Por favor, selecione outro.')
+                            horario2 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: ').split()
+                            horario2 = ''.join(horario2)
+                            if horario1 not in lines[5][1:]:
+                                break
 
             #Envia todas as variáveis para uma linha no arquivo dados.txt
             L = (prof[i] + ' ', '2|' + horario1 + ' ', '3|' + horario2 + ' ',
