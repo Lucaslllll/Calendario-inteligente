@@ -27,7 +27,7 @@ def organizar_coluna(lista, usuario, valor):
                     lista[contador - 1] = usuario
                     contador += 1
             elif valor[i] == str(contador) and lista[contador - 1] != 'Livre':
-                print('Erro com {0}: o horário {1} na {2} já foi reservado para {3}.'.format(usuario, contador, dia_da_semana(valor[0]), lista[contador - 1]))
+                print('Erro com {}: o horário {} na {} já foi reservado para {}.'.format(usuario, contador, dia_da_semana(valor[0]), lista[contador - 1]))
                 contador += 1
             else:
                 contador += 1
@@ -77,6 +77,15 @@ for i in range(0, numProf):
             else:
                 horario1 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: ').split()
                 horario1 = ''.join(horario1)
+
+                if i > 0:
+                    for c in horario1:
+                        while c in lines[1][1:]:
+                            print(f'[ERRO]: o professor {lines[0]} já reservou {c}º horário. Por favor, selecione outro.')
+                            horario1 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: ').split()
+                            horario1 = ''.join(horario1)
+                            if horario1 not in lines[1][1:]:
+                                break
         if c == 3:
             disponivel = str(input('Tem horário disponível na terça-feira? [S/N] ')).lower()[0]
             if disponivel == 'n':
@@ -85,6 +94,15 @@ for i in range(0, numProf):
             else:
                 horario2 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: ').split()
                 horario2 = ''.join(horario2)
+
+                if i > 0:
+                    for c in horario2:
+                        while c in lines[2][1:]:
+                            print(f'[ERRO]: o professor {lines[0]} já reservou {c}º horário. Por favor, selecione outro.')
+                            horario2 = input('Quais os horários disponíveis? [1, 2, 3, 4, 5, 6]: ').split()
+                            horario2 = ''.join(horario2)
+                            if horario1 not in lines[2][1:]:
+                                break
         if c == 4:
             disponivel = str(input('Tem horário disponível na quarta-feira? [S/N] ')).lower()[0]
             if disponivel == 'n':
@@ -118,6 +136,11 @@ for i in range(0, numProf):
             arquivo.writelines(L)
             arquivo.close()
 
+            arquivo = open("dados.txt", "r")
+            lines = arquivo.readlines()[0].split()
+            arquivo.close
+            print(lines)
+
 #cria a lista lines com base em todas as strings em dados.txt, remove uma linha e reescreve tudo no arquivo dados.txt
 a_file = open("dados.txt", "r")
 lines = a_file.readlines()
@@ -131,18 +154,28 @@ while i >= 0:
     # print('Foi adicionado à tabela: ', lines[-1 - i])
     i -= 1
 #FRONT-END
-print('PROCESSANDO OS DADOS...')
-sleep(2.6)
+print('PROCESSANDO OS DADOS.', end='')
+sleep(0.9)
+print('.', end='')
+sleep(0.9)
+print('.')
+sleep(0.9)
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
-print('Gerando tabela...')
-sleep(2)
+print('Gerando tabela.', end='')
+sleep(0.9)
+print('.', end='')
+sleep(0.9)
+print('.')
+sleep(0.9)
 
 os.system('cls' if os.name == 'nt' else 'clear')
 
 print('TABELA:')
+sleep(0.3)
 
+#FIM FRONT-END
 
 
 
@@ -156,7 +189,9 @@ x.add_column('Quinta-feira', [qui[0], qui[1], qui[2], qui[3], qui[4], qui[5]])
 x.add_column('Sexta-feira', [sex[0], sex[1], sex[2], sex[3], sex[4], sex[5]])
 print(x)
 
-deletar = input('Quer deletar todos os dados? [s/n]')
+
+
+deletar = input('Quer deletar todos os dados? [s/n] ').lower()[0]
 if deletar == 's':
     a_file = open("dados.txt", "r")
     lines = a_file.readlines()
@@ -169,7 +204,7 @@ if deletar == 's':
         new_file.write(line)
 
 # aqui pergunto se o usuário quer ou não ver todos os dados sãos em dados.txt
-ver_todos = input('Você quer ver todos os dados salvo no arquivo? [s/n]').lower()[0]
+ver_todos = input('Você quer ver todos os dados salvo no arquivo? [s/n] ').lower()[0]
 
 if ver_todos == 's':
     contador = 0
