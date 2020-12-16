@@ -54,10 +54,11 @@ def organizar_coluna(lista, usuario, valor):
 #                 continue
 
 def ordem_crescente(LISTA):
-    for y in range(0, len(LISTA)):
-        lista = LISTA[y]
-        lista.sort()
-        LISTA[y] = lista
+    lista = []
+    for y in range(0, len(LISTA) - 1):
+        lista.append(int(LISTA[y][y]))
+    lista.sort()
+    
 
 def tem_valor_dobro(LISTA):
     for a in range(0, len(LISTA)):
