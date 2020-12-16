@@ -22,7 +22,8 @@ def organizar_coluna(lista, usuario, valor):
     contador = 1
     for i in range(2, len(valor)):
         while contador <= 6:
-            if valor[i] == str(contador) and lista[contador - 1] == 'Livre':
+            # "Livre" ou "--" por isso deve ter o or, caso contrário nunca irá entrar em outras condições
+            if valor[i] == str(contador) and (lista[contador - 1] == 'Livre' or lista[contador - 1] == '--'):
                     lista[contador - 1] = usuario
                     contador += 1
             elif valor[i] == str(contador) and lista[contador - 1] != 'Livre':
@@ -112,12 +113,12 @@ for i in range(0, numProf):
             L = (prof[i] + ' ', '2|' + horario1 + ' ', '3|' + horario2 + ' ',
                     '4|' + horario3 + ' ', '5|' + horario4 + ' ', '6|' + horario5 + '\n') 
 
-            #Adiciona as variáveis em L no arquivo dados.py
+            #Adiciona as variáveis da lista L no arquivo dados.txt
             arquivo = open('dados.txt', 'a') 
             arquivo.writelines(L)
             arquivo.close()
 
-#cria a lista lines com base em todas as strings em dados.txt, remove um linha e reescreve tudo no arquivo dados.txt
+#cria a lista lines com base em todas as strings em dados.txt, remove uma linha e reescreve tudo no arquivo dados.txt
 a_file = open("dados.txt", "r")
 lines = a_file.readlines()
 a_file.close()
@@ -166,3 +167,30 @@ if deletar == 's':
     new_file = open("dados.txt", "w+")
     for line in lines:
         new_file.write(line)
+
+# aqui pergunto se o usuário quer ou não ver todos os dados sãos em dados.txt
+ver_todos = input('Você quer ver todos os dados salvo no arquivo? [s/n]').lower()[0]
+
+if ver_todos == 's':
+    contador = 0
+    for x in lines:
+        contador += 1
+
+
+    for i in range(0, contador):
+        line = lines[i].split()
+        adicionar_na_tabela(line)
+        
+
+
+
+    x = PrettyTable()
+    x.add_column('Horários',["1: 07:30h - 8:40h", "2: 08:55h - 10:35h", "3: 10:50h - 12:30h", "4: 13:00h - 14:40h", 
+    "5: 14:55h - 16:35h", "6: 16:50h - 18:30h"])
+    x.add_column('Segunda-feira', [seg[0], seg[1], seg[2], seg[3], seg[4], seg[5]])
+    x.add_column('Terça-feira', [ter[0], ter[1], ter[2], ter[3], ter[4], ter[5]])
+    x.add_column('Quarta-feira', [qua[0], qua[1], qua[2], qua[3], qua[4], qua[5]])
+    x.add_column('Quinta-feira', [qui[0], qui[1], qui[2], qui[3], qui[4], qui[5]])
+    x.add_column('Sexta-feira', [sex[0], sex[1], sex[2], sex[3], sex[4], sex[5]])
+
+    print(x)
