@@ -1,7 +1,4 @@
-from __future__ import unicode_literals
 from prettytable import PrettyTable
-import prompt_toolkit
-from prompt_toolkit import prompt
 
 def dia_da_semana(valor):
 
