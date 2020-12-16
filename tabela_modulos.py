@@ -187,18 +187,18 @@ def adicionar_na_tabela(LISTA):
             #prioridadesDia = ["Tales", "Lucas", "Thiago"]
             
             if prioridadesDia[a] == lista[0][0] and i == 0:
-                organizar_coluna(seg, lista[0][0], i) # valor = i?
+                organizar_coluna(seg, lista[0][0], prioridadesDia) # valor = i?
                 
             if prioridadesDia[a] == lista[0] and i == 1:
-                organizar_coluna(ter, lista[0][0], i)
+                organizar_coluna(ter, lista[0][0], prioridadesDia)
                 
             if prioridadesDia[a] == lista[0] and i == 2:
-                organizar_coluna(qua, lista[0][0], i)
+                organizar_coluna(qua, lista[0][0], prioridadesDia)
                 
             if prioridadesDia[a] == lista[0] and i == 3:
-                organizar_coluna(qui, lista[0][0], i)
+                organizar_coluna(qui, lista[0][0], prioridadesDia)
                 
             if prioridadesDia[a] == lista[0] and i == 4:
-                organizar_coluna(sex, lista[0][0], i)
+                organizar_coluna(sex, lista[0][0], prioridadesDia)
             else:
                 continue
